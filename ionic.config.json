@@ -1,0 +1,7 @@
+{
+  "name": "ac23trilp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Veterinario
+    </ion-title>
+    <ion-button slot="end">
+      <ion-button (click)="addPet()">Adicionar Pet</ion-button>
+      <ion-button (click)="addCaregiver()">Adicionar Cuidador</ion-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngIf="pets.length === &0">
+      <ion-label>Nenhum pet cadastrado ainda.</ion-label>
+    </ion-item>
+    <ion-item-sliding *ngFor="let pet of pets">
+      <ion-item lines="full" button (click)="updatePet(pet)">
+        <ion-label>
+          <h2>{{ pet.name }}</h2>
+          <p>{{ pet.obs }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deletePet(pet.id!)">
+          <ion-icon sLot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngIf="caregivers.length === &0">
+      <ion-label>Nenhum pet cadastrado ainda.</ion-label>
+    </ion-item>
+    <ion-item-sliding *ngFor="let caregiver of caregivers">
+      <ion-item lines="full" button (click)="updateCaregivers(caregiver)">
+        <ion-label>
+          <h2>{{ caregiver.name }}</h2>
+          <p>{{ caregiver.skills }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteCaregiver(caregiver.id!)">
+          <ion-icon sLot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
