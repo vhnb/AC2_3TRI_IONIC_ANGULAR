@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ isNewItem ? 'Adicionar Cuidador' : 'Editar Cuidador' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #form="ngForm" (ngSubmit)="saveItem()">
+    <ion-item>
+      <ion-label position="floating">Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="caregiver.name" name="name" required>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="tel" [(ngModel)]="caregiver.phone" name="phone" required inputmode="tel">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Anos de Experiência</ion-label>
+      <ion-input type="number" [(ngModel)]="caregiver.exp" name="exp" required min="0">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Habilidades</ion-label>
+      <ion-textarea rows="4" [(ngModel)]="caregiver.skills" name="skills" required>
+      </ion-textarea>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="!form.valid" class="ion-margin-top">
+      Salvar
+    </ion-button>
+  </form>
+</ion-content>
